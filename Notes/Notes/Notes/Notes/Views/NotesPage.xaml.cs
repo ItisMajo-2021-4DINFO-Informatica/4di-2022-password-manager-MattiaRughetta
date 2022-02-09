@@ -27,7 +27,7 @@ namespace Notes.Views
                 notes.Add(new Note
                 {
                     Filename = filename,
-                    Text = File.ReadAllText(filename),
+                    ServiceName = File.ReadAllText(filename),
                     Date = File.GetCreationTime(filename)
                 });
             }

@@ -28,11 +28,16 @@ namespace Notes.Views
         {
             try
             {
+                string allText = File.ReadAllText(filename);
+                string[] campi = allText.Split('§');
                 // Retrieve the note and set it as the BindingContext of the page.
                 Note note = new Note
                 {
                     Filename = filename,
-                    Text = File.ReadAllText(filename),
+                    ServiceName = campi[0],
+                    Username = campi[1],
+                    Password = campi[2],
+                    URL = campi[3],
                     Date = File.GetCreationTime(filename)
                 };
                 BindingContext = note;
@@ -51,12 +56,20 @@ namespace Notes.Views
             {
                 // Save the file.
                 var filename = Path.Combine(App.FolderPath, $"{Path.GetRandomFileName()}.notes.txt");
-                File.WriteAllText(filename, note.Text);
+                string allText = note.ServiceName + "§" +
+                    note.Username + "§" +
+                    note.Password + "§" +
+                    note.URL;
+                File.WriteAllText(filename, allText);
             }
             else
             {
                 // Update the file.
-                File.WriteAllText(note.Filename, note.Text);
+                string allText = note.ServiceName + "§" +
+                                note.Username + "§" +
+                                note.Password + "§" +
+                                note.URL;
+                File.WriteAllText(note.Filename, allText);
             }
 
             // Navigate backwards
