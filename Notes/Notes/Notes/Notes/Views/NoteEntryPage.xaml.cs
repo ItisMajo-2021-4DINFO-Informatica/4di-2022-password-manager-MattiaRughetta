@@ -20,7 +20,7 @@ namespace Notes.Views
         {
             InitializeComponent();
 
-            // Set the BindingContext of the page to a new Note.
+          
             BindingContext = new Note();
         }
 
@@ -30,7 +30,7 @@ namespace Notes.Views
             {
                 string allText = File.ReadAllText(filename);
                 string[] campi = allText.Split('§');
-                // Retrieve the note and set it as the BindingContext of the page.
+              
                 Note note = new Note
                 {
                     Filename = filename,
@@ -54,7 +54,7 @@ namespace Notes.Views
 
             if (string.IsNullOrWhiteSpace(note.Filename))
             {
-                // Save the file.
+                
                 var filename = Path.Combine(App.FolderPath, $"{Path.GetRandomFileName()}.notes.txt");
                 string allText = note.ServiceName + "§" +
                     note.Username + "§" +
@@ -64,7 +64,7 @@ namespace Notes.Views
             }
             else
             {
-                // Update the file.
+              
                 string allText = note.ServiceName + "§" +
                                 note.Username + "§" +
                                 note.Password + "§" +
@@ -72,7 +72,7 @@ namespace Notes.Views
                 File.WriteAllText(note.Filename, allText);
             }
 
-            // Navigate backwards
+            
             await Shell.Current.GoToAsync("..");
         }
 
@@ -80,13 +80,13 @@ namespace Notes.Views
         {
             var note = (Note)BindingContext;
 
-            // Delete the file.
+           
             if (File.Exists(note.Filename))
             {
                 File.Delete(note.Filename);
             }
 
-            // Navigate backwards
+           
             await Shell.Current.GoToAsync("..");
         }
     }

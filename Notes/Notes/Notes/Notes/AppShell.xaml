@@ -2,13 +2,15 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms"
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:views="clr-namespace:Notes.Views"
-       x:Class="Notes.AppShell">
-    <!-- Display a bottom tab bar containing two tabs -->
+       x:Class="Notes.AppShell"
+       BackgroundColor="Blue"
+       TitleColor="White" UnselectedColor="White">
+    
     <TabBar>
-        <ShellContent Title="Notes"
+        <ShellContent Title="Password"
                       Icon="icon_feed.png"
                       ContentTemplate="{DataTemplate views:NotesPage}" />
-        <ShellContent Title="About"
+        <ShellContent Title="Info"
                       Icon="icon_about.png"
                       ContentTemplate="{DataTemplate views:AboutPage}" />
     </TabBar>

@@ -2,13 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Notes.Views.AboutPage"
-             Title="About">
+             Title="Informazioni"
+             BackgroundColor="AliceBlue">
     <!-- Layout children in two rows -->
     <Grid RowDefinitions="Auto,*">
-        <Image Source="xamarin_logo.png"
-               BackgroundColor="{OnPlatform iOS=LightSlateGray, Android=#2196F3}"
-               VerticalOptions="Center"
-               HeightRequest="64" />
+        
         <!-- Layout children vertically -->
         <StackLayout Grid.Row="1"
                      Margin="20"
@@ -17,16 +15,16 @@
                 <Label.FormattedText>
                     <FormattedString>
                         <FormattedString.Spans>
-                            <Span Text="Notes"
+                            <Span Text="Gestore Password"
                                   FontAttributes="Bold"
                                   FontSize="22" />
-                            <Span Text=" v1.0" />
+                            <Span Text=" v2.0" />
                         </FormattedString.Spans>
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
-            <Label Text="This app is written in XAML and C# with the Xamarin Platform." />
-            <Button Text="Learn more"
+            <Label Text="App Realizzata da Rughetta Mattia" />
+            <Button Text="Impara Altro"
                     Clicked="OnButtonClicked" />
         </StackLayout>
     </Grid>
